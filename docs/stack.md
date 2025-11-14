@@ -118,10 +118,44 @@ If needed later:
 
 ## Security & compliance
 
-- **Secrets:** managed via Vercel env vars locally and in prod.
-- **Multi-tenancy:** all data access scoped by `organizationId`.
-- **OAuth:** Google OAuth for Business Profile API, minimal scopes.
+- **Secrets:** managed via Vercel env vars (encrypted at rest)
+- **Multi-tenancy:** all data access scoped by `organizationId` via helper functions
+- **OAuth:** Google OAuth for Business Profile API, minimal scopes, tokens encrypted
+- **Error monitoring:** Sentry for production errors with context
+- **Rate limiting:** Exponential backoff for external APIs
 - **GDPR:**
-  - Data export endpoint for org.
-  - Soft-delete / hard-delete flow for accounts.
-  - Documented subprocessors (Vercel, Neon, Stripe, Resend, OpenAI, etc.).
+  - Data export API endpoint (`/api/org/export`)
+  - Soft-delete with `deletedAt` timestamp
+  - Hard-delete cascade for account deletion
+  - Documented subprocessors (Vercel, Neon, Stripe, Resend, OpenAI, etc.)
+  - 30-day data retention after soft delete
+
+## Environment Variables
+
+Required for local development and production:
+```bash
+# Database
+DATABASE_URL=              # Neon Postgres URL
+
+# Auth
+NEXTAUTH_SECRET=           # Generate with: openssl rand -base64 32
+NEXTAUTH_URL=              # http://localhost:3000 (local) / production URL
+
+# Stripe
+STRIPE_SECRET_KEY=         # sk_test_... or sk_live_...
+STRIPE_WEBHOOK_SECRET=     # whsec_...
+
+# Email
+RESEND_API_KEY=            # re_...
+
+# AI
+OPENAI_API_KEY=            # sk-...
+
+# Google OAuth
+GOOGLE_CLIENT_ID=          # From Google Cloud Console
+GOOGLE_CLIENT_SECRET=      # From Google Cloud Console
+
+# Monitoring
+SENTRY_DSN=                # From Sentry project settings
+NEXT_PUBLIC_SENTRY_DSN=    # Same as above (public)
+```

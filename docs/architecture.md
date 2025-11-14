@@ -40,6 +40,29 @@ Core idea:
 4. **Billing**
    - Subscription state stored on Organization (backed by Stripe)
 
+## Security & Multi-tenancy
+
+All data access MUST be scoped by `organizationId`. Core principles:
+
+1. **Never trust client-supplied org IDs** - always derive from session
+2. **Use helper functions** - `requireOrganization(userId)` in every API route
+3. **Prisma queries** - always filter by `organizationId`
+4. **Middleware** - check org access before any app route
+
+## Error Handling
+
+- Use custom error classes for different error types
+- All errors sent to Sentry with context
+- User-facing errors are friendly and actionable
+- OAuth errors trigger "reconnect" flow
+
+## Data Privacy & GDPR
+
+- Org data export API at `/api/org/export`
+- Soft delete with `deletedAt` timestamp
+- Hard delete removes all related data
+- Documented subprocessors in Terms
+
 ---
 
 ## Main features (MVP)

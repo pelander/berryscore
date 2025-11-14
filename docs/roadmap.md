@@ -4,31 +4,63 @@ Time scales are approximate and assume part-time solo founder with AI assistance
 
 ---
 
-## Phase 0 – Setup & foundation (Week 0–1)
+## Phase 0 — Setup & foundation (Week 0–1)
 
-- Fork SaaS starter repo (Next.js + Prisma + Auth.js + Stripe).
-- Run locally; understand pages and flows.
-- Add `/docs` files (architecture, stack, flows, schema, etc.).
-- Rebrand starter to “BerryScore”.
-- Configure local DB (Neon or local Postgres).
-- Verify auth and Stripe test mode flows work.
+- Fork SaaS starter repo (Next.js + Prisma + Auth.js + Stripe)
+- Run locally; understand pages and flows
+- Add `/docs` files (architecture, stack, flows, schema, etc.)
+- Rebrand starter to "BerryScore"
+- Configure local DB (Neon or local Postgres)
+- Verify auth and Stripe test mode flows work
+
+- Security & Error Setup:**
+  - Set up Sentry for error monitoring
+  - Configure all environment variables in Vercel
+  - Create `lib/errors.ts` with custom error classes
+  - Set up SPF/DKIM for Resend email domain
+
+- Git Workflow:**
+  - Configure GitHub branch protection on `main`
+  - Set up feature branch workflow
+  - Configure Vercel preview deployments for PRs
+  - Set up Neon branch databases for previews
 
 Deliverable:  
-Branded, running app with auth + generic dashboard + Stripe test.
+Branded, running app with auth + generic dashboard + Stripe test + proper monitoring.
 
 ---
 
-## Phase 1 – Core domain model (Week 1–2)
+## Phase 1 — Core domain model + Security (Week 1–2)
 
 - Extend Prisma schema:
-  - Organization, Membership, Location, OauthAccount, Review, Reply, NotificationPreference.
-- Implement multi-tenancy helpers (current org lookup).
+  - Organization (add trial fields, deletedAt)
+  - Membership, Location
+  - OauthAccount (add isValid, error tracking)
+  - Review (add sync tracking), Reply, NotificationPreference
+
+- Multi-tenancy Security:**
+  - Create `lib/org.ts` with `requireOrganization()` helper
+  - Create `lib/auth-helpers.ts` for session + org access
+  - Add middleware to check org access on all app routes
+  - Test org scoping with different users
+
+- Trial & Billing Logic:**
+  - Add trial check middleware
+  - Create trial banner component
+  - Add read-only mode for expired trials
+  - Create billing status helpers
+
+- GDPR Foundation:**
+  - Create `lib/gdpr.ts` with export/delete functions
+  - Add soft delete to organization model
+  - Create data export API endpoint
+
 - Add stub pages:
-  - `/reviews`, `/locations`, `/analytics`, `/settings`.
-- Restrict all app routes by auth + org.
+  - `/reviews`, `/locations`, `/analytics`, `/settings`
+- Restrict all app routes by auth + org
 
 Deliverable:  
-Tenant-aware skeleton for BerryScore-specific features.
+Secure, tenant-aware skeleton with trial logic and GDPR basics.
 
 ---
 

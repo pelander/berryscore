@@ -30,6 +30,11 @@ model Organization {
   country     String         @default("SE")
   plan        Plan           @default(FREE)
   stripeId    String?        // Stripe customer id
+
+  trialEndsAt         DateTime?
+  subscriptionStatus  String?        // 'active' | 'past_due' | 'canceled' | 'trialing'
+  deletedAt          DateTime?       // for GDPR soft delete
+
   createdAt   DateTime       @default(now())
   updatedAt   DateTime       @updatedAt
 
@@ -39,6 +44,8 @@ model Organization {
   reviews     Review[]
   replies     Reply[]
   notifPrefs  NotificationPreference?
+
+  @@index([deletedAt])
 }
 
 model Membership {
@@ -78,6 +85,10 @@ model OauthAccount {
   expiresAt      DateTime?
   scope          String?
 
+  isValid        Boolean       @default(true)
+  lastError      String?
+  lastErrorAt    DateTime?
+
   organization   Organization  @relation(fields: [organizationId], references: [id])
 
   @@index([organizationId, provider])
@@ -100,11 +111,15 @@ model Review {
   repliedAt      DateTime?
   reply          Reply?
 
+  lastSyncedAt   DateTime      @default(now())
+  syncVersion    Int           @default(1)
+
   organization   Organization  @relation(fields: [organizationId], references: [id])
   location       Location?     @relation(fields: [locationId], references: [id])
 
   @@unique([source, sourceReviewId])
   @@index([organizationId, createdAt])
+  @@index([organizationId, lastSyncedAt])
 }
 
 model Reply {
