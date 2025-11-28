@@ -39,45 +39,50 @@ export function NavBar({ scroll = false }: NavBarProps) {
 
   return (
     <header
-      className={`sticky top-0 z-40 flex w-full justify-center bg-background/60 backdrop-blur-xl transition-all ${
-        scroll ? (scrolled ? "border-b" : "bg-transparent") : "border-b"
-      }`}
+      className={cn(
+        "sticky top-0 z-40 flex w-full justify-center transition-all",
+        "bg-background/60 backdrop-blur-xl md:bg-transparent md:backdrop-blur-none md:border-b-0",
+        scroll ? (scrolled ? "border-b" : "") : "border-b"
+      )}
     >
       <MaxWidthWrapper
         className="flex h-14 items-center justify-between py-4"
         large={documentation}
       >
-        <div className="flex gap-6 md:gap-10">
-          <Link href="/" className="flex items-center space-x-1.5">
-            <Icons.logo />
-            <span className="font-urban text-xl font-bold">
-              {siteConfig.name}
-            </span>
-          </Link>
+        <div className="w-full md:max-w-2xl md:mx-auto md:rounded-lg md:border md:bg-background/60 md:backdrop-blur-xl md:mt-4 md:p-3 relative flex h-14 items-center justify-between">
+        <Link href="/" className="flex items-center space-x-1.5 relative z-10">
+          <img
+            src="/telescope-logo6.svg"
+            alt="BerryScore"
+            className="w-6 h-6 invert dark:invert-0"
+          />
+          <span className="font-geist text-l font-semibold">
+            {siteConfig.name}
+          </span>
+        </Link>
 
-          {links && links.length > 0 ? (
-            <nav className="hidden gap-6 md:flex">
-              {links.map((item, index) => (
-                <Link
-                  key={index}
-                  href={item.disabled ? "#" : item.href}
-                  prefetch={true}
-                  className={cn(
-                    "flex items-center text-lg font-medium transition-colors hover:text-foreground/80 sm:text-sm",
-                    item.href.startsWith(`/${selectedLayout}`)
-                      ? "text-foreground"
-                      : "text-foreground/60",
-                    item.disabled && "cursor-not-allowed opacity-80",
-                  )}
-                >
-                  {item.title}
-                </Link>
-              ))}
-            </nav>
-          ) : null}
-        </div>
+        {links && links.length > 0 ? (
+          <nav className="hidden gap-6 md:flex md:absolute md:left-1/2 md:-translate-x-1/2">
+            {links.map((item, index) => (
+              <Link
+                key={index}
+                href={item.disabled ? "#" : item.href}
+                prefetch={true}
+                className={cn(
+                  "flex items-center text-lg font-medium transition-colors hover:text-foreground/80 sm:text-sm",
+                  item.href.startsWith(`/${selectedLayout}`)
+                    ? "text-foreground"
+                    : "text-foreground/60",
+                  item.disabled && "cursor-not-allowed opacity-80",
+                )}
+              >
+                {item.title}
+              </Link>
+            ))}
+          </nav>
+        ) : null}
 
-        <div className="flex items-center space-x-3">
+        <div className="flex items-center space-x-3 relative z-10">
           {/* right header for docs */}
           {documentation ? (
             <div className="hidden flex-1 items-center space-x-4 sm:justify-end lg:flex">
@@ -122,12 +127,13 @@ export function NavBar({ scroll = false }: NavBarProps) {
               rounded="full"
               onClick={() => setShowSignInModal(true)}
             >
-              <span>Sign In</span>
+              <span>Logga in</span>
               <Icons.arrowRight className="size-4" />
             </Button>
           ) : (
             <Skeleton className="hidden h-9 w-28 rounded-full lg:flex" />
           )}
+        </div>
         </div>
       </MaxWidthWrapper>
     </header>
