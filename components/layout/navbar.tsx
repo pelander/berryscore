@@ -15,7 +15,6 @@ import { Skeleton } from "@/components/ui/skeleton";
 import { DocsSearch } from "@/components/docs/search";
 import { ModalContext } from "@/components/modals/providers";
 import { Icons } from "@/components/shared/icons";
-import MaxWidthWrapper from "@/components/shared/max-width-wrapper";
 
 interface NavBarProps {
   scroll?: boolean;
@@ -41,28 +40,25 @@ export function NavBar({ scroll = false }: NavBarProps) {
     <header
       className={cn(
         "sticky top-0 z-40 flex w-full justify-center transition-all",
-        "bg-background/60 backdrop-blur-xl md:bg-transparent md:backdrop-blur-none md:border-b-0",
+        "bg-background/60 backdrop-blur-xl",
         scroll ? (scrolled ? "border-b" : "") : "border-b"
       )}
     >
-      <MaxWidthWrapper
-        className="flex h-14 items-center justify-between py-4"
-        large={documentation}
-      >
-        <div className="w-full md:max-w-2xl md:mx-auto md:rounded-lg md:border md:bg-background/60 md:backdrop-blur-xl md:mt-4 md:p-3 relative flex h-14 items-center justify-between">
-        <Link href="/" className="flex items-center space-x-1.5 relative z-10">
-          <img
+      <div className="w-full flex h-14 items-center justify-between px-4 py-4">
+        <Link href="/" className="flex items-center space-x-1.5">
+          {/*<img
             src="/telescope-logo6.svg"
             alt="BerryScore"
             className="w-6 h-6 invert dark:invert-0"
-          />
-          <span className="font-geist text-l font-semibold">
+          />*/}
+          <span className="font-geist text-xl font-semibold">
             {siteConfig.name}
           </span>
         </Link>
 
+        <div className="flex items-center gap-6">
         {links && links.length > 0 ? (
-          <nav className="hidden gap-6 md:flex md:absolute md:left-1/2 md:-translate-x-1/2">
+          <nav className="hidden gap-6 md:flex">
             {links.map((item, index) => (
               <Link
                 key={index}
@@ -82,7 +78,7 @@ export function NavBar({ scroll = false }: NavBarProps) {
           </nav>
         ) : null}
 
-        <div className="flex items-center space-x-3 relative z-10">
+        <div className="flex items-center space-x-3">
           {/* right header for docs */}
           {documentation ? (
             <div className="hidden flex-1 items-center space-x-4 sm:justify-end lg:flex">
@@ -135,7 +131,7 @@ export function NavBar({ scroll = false }: NavBarProps) {
           )}
         </div>
         </div>
-      </MaxWidthWrapper>
+      </div>
     </header>
   );
 }

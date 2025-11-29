@@ -39,9 +39,9 @@ export default async function HeroLanding() {
         </Link>
 
         <h1 className="text-balance font-urban text-4xl font-extrabold tracking-tight sm:text-5xl md:text-6xl lg:text-[66px]">
-          Hantera alla dina omdömen{" "}
+          Vi svarar på dina recensioner{" "}
           <span className="text-gradient_indigo-purple font-extrabold">
-            på ett ställe
+            
           </span>
         </h1>
 
@@ -49,7 +49,7 @@ export default async function HeroLanding() {
           className="max-w-2xl text-balance leading-normal text-muted-foreground sm:text-xl sm:leading-8"
           style={{ animationDelay: "0.35s", animationFillMode: "forwards" }}
         >
-          Vi låter dig aldrig missa aldrig en recension – svara snabbt med AI och bygg ett bättre rykte för ditt företag.
+          Professionella svar på alla dina Google-recensioner inom 24 timmar. Du behöver inte göra något.
         </p>
 
         <div
@@ -64,10 +64,10 @@ export default async function HeroLanding() {
               "gap-2",
             )}
           >
-            <span>Kom igång</span>
+            <span>Kom igång – 995 kr/mån</span>
             <Icons.arrowRight className="size-4" />
           </Link>
-          <Link
+          {/* <Link
             href={siteConfig.links.github}
             target="_blank"
             rel="noreferrer"
@@ -85,7 +85,7 @@ export default async function HeroLanding() {
               <span className="hidden sm:inline-block">Star on</span> GitHub{" "}
               <span className="font-semibold">{nFormatter(stars)}</span>
             </p>
-          </Link>
+          </Link> */}
         </div>
       </div>
     </section>
