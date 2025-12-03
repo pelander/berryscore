@@ -24,9 +24,9 @@ export default async function HeroLanding() {
     .catch((e) => console.log(e));
 
   return (
-    <section className="space-y-6 py-12 sm:py-20 lg:py-20">
+    <section className="space-y-6 pt-20 pb-12 sm:pt-32 sm:pb-20 lg:pt-40 lg:pb-20">
       <div className="container flex max-w-5xl flex-col items-center gap-5 text-center">
-        <Link
+        {/* <Link
           href="https://twitter.com/miickasmt/status/1810465801649938857"
           className={cn(
             buttonVariants({ variant: "outline", size: "sm", rounded: "full" }),
@@ -36,24 +36,24 @@ export default async function HeroLanding() {
         >
           <span className="mr-3">🎉</span>
           <span className="hidden md:flex">Pröva 14 dagar utan kostnad.&nbsp;</span>
-        </Link>
+        </Link> */}
 
-        <h1 className="text-balance font-urban text-4xl font-extrabold tracking-tight sm:text-5xl md:text-6xl lg:text-[66px]">
-          Vi svarar på dina recensioner{" "}
+        <h1 className="text-balance font-urban text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl lg:text-[66px]">
+          Vi svarar på dina recensioner.{" "}
           <span className="text-gradient_indigo-purple font-extrabold">
             
           </span>
         </h1>
 
         <p
-          className="max-w-2xl text-balance leading-normal text-muted-foreground sm:text-xl sm:leading-8"
+          className="max-w-2xl text-balance leading-normal text-foreground sm:text-xl sm:leading-7 font-regular"
           style={{ animationDelay: "0.35s", animationFillMode: "forwards" }}
         >
-          Professionella svar på alla dina Google-recensioner inom 24 timmar. Du behöver inte göra något.
+          Vi håller koll på dina stjärnor. Mänskliga svar på alla dina Google-recensioner inom 24h.
         </p>
 
         <div
-          className="flex justify-center space-x-2 md:space-x-4"
+          className="flex justify-center space-x-2 md:space-x-4 mt-8"
           style={{ animationDelay: "0.4s", animationFillMode: "forwards" }}
         >
           <Link

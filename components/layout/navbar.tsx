@@ -1,6 +1,5 @@
 "use client";
 
-import { useContext } from "react";
 import Link from "next/link";
 import { useSelectedLayoutSegment } from "next/navigation";
 import { useSession } from "next-auth/react";
@@ -13,7 +12,6 @@ import { useScroll } from "@/hooks/use-scroll";
 import { Button } from "@/components/ui/button";
 import { Skeleton } from "@/components/ui/skeleton";
 import { DocsSearch } from "@/components/docs/search";
-import { ModalContext } from "@/components/modals/providers";
 import { Icons } from "@/components/shared/icons";
 
 interface NavBarProps {
@@ -24,7 +22,6 @@ interface NavBarProps {
 export function NavBar({ scroll = false }: NavBarProps) {
   const scrolled = useScroll(50);
   const { data: session, status } = useSession();
-  const { setShowSignInModal } = useContext(ModalContext);
 
   const selectedLayout = useSelectedLayoutSegment();
   const documentation = selectedLayout === "docs";
@@ -58,7 +55,7 @@ export function NavBar({ scroll = false }: NavBarProps) {
 
         <div className="flex items-center gap-6">
         {links && links.length > 0 ? (
-          <nav className="hidden gap-6 md:flex">
+          <nav className="hidden gap-6 md:flex md:items-center">
             {links.map((item, index) => (
               <Link
                 key={index}
@@ -75,6 +72,14 @@ export function NavBar({ scroll = false }: NavBarProps) {
                 {item.title}
               </Link>
             ))}
+            {status === "unauthenticated" && (
+              <Link
+                href="/login"
+                className="flex items-center text-lg font-medium transition-colors hover:text-foreground/80 sm:text-sm text-foreground/60"
+              >
+                Logga in
+              </Link>
+            )}
           </nav>
         ) : null}
 
@@ -116,16 +121,17 @@ export function NavBar({ scroll = false }: NavBarProps) {
               </Button>
             </Link>
           ) : status === "unauthenticated" ? (
-            <Button
-              className="hidden gap-2 px-5 md:flex"
-              variant="default"
-              size="sm"
-              rounded="full"
-              onClick={() => setShowSignInModal(true)}
-            >
-              <span>Logga in</span>
-              <Icons.arrowRight className="size-4" />
-            </Button>
+            <Link href="/pricing" className="hidden md:block">
+              <Button
+                className="gap-2 px-5"
+                variant="default"
+                size="sm"
+                rounded="full"
+              >
+                <span>Kom igång</span>
+                <Icons.arrowRight className="size-4" />
+              </Button>
+            </Link>
           ) : (
             <Skeleton className="hidden h-9 w-28 rounded-full lg:flex" />
           )}

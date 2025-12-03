@@ -104,17 +104,17 @@ export function NavMobile() {
                   onClick={() => setOpen(false)}
                   className="flex w-full font-medium capitalize"
                 >
-                  Login
+                  Logga in
                 </Link>
               </li>
 
               <li className="py-3">
                 <Link
-                  href="/register"
+                  href="/pricing"
                   onClick={() => setOpen(false)}
                   className="flex w-full font-medium capitalize"
                 >
-                  Sign up
+                  Kom igång
                 </Link>
               </li>
             </>
