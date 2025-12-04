@@ -24,7 +24,7 @@ export default async function HeroLanding() {
     .catch((e) => console.log(e));
 
   return (
-    <section className="space-y-6 pt-20 pb-12 sm:pt-32 sm:pb-20 lg:pt-40 lg:pb-20">
+    <section className="space-y-6 pt-16 pb-12 sm:pt-24 sm:pb-20 lg:pt-24 lg:pb-20">
       <div className="container flex max-w-5xl flex-col items-center gap-5 text-center">
         {/* <Link
           href="https://twitter.com/miickasmt/status/1810465801649938857"
@@ -38,6 +38,12 @@ export default async function HeroLanding() {
           <span className="hidden md:flex">Pröva 14 dagar utan kostnad.&nbsp;</span>
         </Link> */}
 
+        <img
+          src="/illustrations/handstars.svg"
+          alt=""
+          className="w-24 h-auto mx-auto mb-8"
+        />
+
         <h1 className="text-balance font-urban text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl lg:text-[66px]">
           Vi svarar på dina recensioner.{" "}
           <span className="text-gradient_indigo-purple font-extrabold">
@@ -46,7 +52,7 @@ export default async function HeroLanding() {
         </h1>
 
         <p
-          className="max-w-2xl text-balance leading-normal text-[#37352f] sm:text-[22px] sm:leading-7 font-medium"
+          className="max-w-2xl text-balance leading-normal text-[#474747] sm:text-[22px] sm:leading-7 font-medium pt-2"
           style={{ animationDelay: "0.35s", animationFillMode: "forwards" }}
         >
           Vi håller koll på dina stjärnor. Mänskliga svar på alla dina Google-recensioner inom 24h.
