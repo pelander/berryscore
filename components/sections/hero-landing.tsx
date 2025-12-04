@@ -46,7 +46,7 @@ export default async function HeroLanding() {
         </h1>
 
         <p
-          className="max-w-2xl text-balance leading-normal text-foreground sm:text-xl sm:leading-7 font-regular"
+          className="max-w-2xl text-balance leading-normal text-[#37352f] sm:text-[22px] sm:leading-7 font-medium"
           style={{ animationDelay: "0.35s", animationFillMode: "forwards" }}
         >
           Vi håller koll på dina stjärnor. Mänskliga svar på alla dina Google-recensioner inom 24h.
@@ -59,10 +59,7 @@ export default async function HeroLanding() {
           <Link
             href="/pricing"
             prefetch={true}
-            className={cn(
-              buttonVariants({ size: "lg", rounded: "full" }),
-              "gap-2",
-            )}
+            className="inline-flex items-center justify-center gap-2 rounded-lg bg-blue-600 hover:bg-blue-700 px-3 py-1.5 text-[15px] font-semibold text-white transition-colors"
           >
             <span>Kom igång – 995 kr/mån</span>
             <Icons.arrowRight className="size-4" />
@@ -87,6 +84,10 @@ export default async function HeroLanding() {
             </p>
           </Link> */}
         </div>
+
+        <p className="text-[13px] font-normal text-[#45433e] -mt-3">
+          Allt ingår. Ingen bindningstid.
+        </p>
       </div>
     </section>
   );

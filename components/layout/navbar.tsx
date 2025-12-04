@@ -121,16 +121,13 @@ export function NavBar({ scroll = false }: NavBarProps) {
               </Button>
             </Link>
           ) : status === "unauthenticated" ? (
-            <Link href="/pricing" className="hidden md:block">
-              <Button
-                className="gap-2 px-5"
-                variant="default"
-                size="sm"
-                rounded="full"
-              >
+            <Link
+              href="/pricing"
+              className="hidden md:block"
+            >
+              <button className="inline-flex items-center justify-center gap-2 rounded-lg bg-blue-600 hover:bg-blue-700 px-2.5 py-1 text-[14px] font-semibold text-white transition-colors">
                 <span>Kom igång</span>
-                <Icons.arrowRight className="size-4" />
-              </Button>
+              </button>
             </Link>
           ) : (
             <Skeleton className="hidden h-9 w-28 rounded-full lg:flex" />
