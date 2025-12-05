@@ -55,7 +55,7 @@ export default async function HeroLanding() {
         </h1>
 
         <p
-          className="max-w-2xl text-balance pt-2 font-medium leading-normal text-tinted sm:text-[22px] sm:leading-7"
+          className="max-w-2xl text-balance pt-2 font-medium leading-normal text-[#474747] sm:text-[22px] sm:leading-7"
           style={{ animationDelay: "0.35s", animationFillMode: "forwards" }}
         >
           Vi håller koll på dina stjärnor. Mänskliga svar på alla dina Google-recensioner inom 24h.
