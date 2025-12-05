@@ -41,7 +41,7 @@ export function NavBar({ scroll = false }: NavBarProps) {
         scroll ? (scrolled ? "border-b" : "") : "border-b"
       )}
     >
-      <div className="w-full flex h-14 items-center justify-between px-4 py-4">
+      <div className="flex h-14 w-full items-center justify-between p-4">
         <Link href="/" className="flex items-center space-x-1.5">
           {/*<img
             src="/telescope-logo6.svg"
@@ -75,7 +75,7 @@ export function NavBar({ scroll = false }: NavBarProps) {
             {status === "unauthenticated" && (
               <Link
                 href="/login"
-                className="flex items-center text-lg font-medium transition-colors hover:text-foreground/80 sm:text-sm text-foreground/60"
+                className="flex items-center text-lg font-medium text-foreground/60 transition-colors hover:text-foreground/80 sm:text-sm"
               >
                 Logga in
               </Link>
@@ -125,7 +125,7 @@ export function NavBar({ scroll = false }: NavBarProps) {
               href="/pricing"
               className="hidden md:block"
             >
-              <button className="inline-flex items-center justify-center gap-2 rounded-lg bg-blue-600 hover:bg-blue-700 px-2.5 py-1 text-[14px] font-semibold text-white transition-colors">
+              <button className="inline-flex items-center justify-center gap-2 rounded-lg bg-blue-600 px-2.5 py-1 text-[14px] font-semibold text-white transition-colors hover:bg-blue-700">
                 <span>Kom igång</span>
               </button>
             </Link>

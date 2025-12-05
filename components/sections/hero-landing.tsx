@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 
 import { env } from "@/env.mjs";
@@ -24,7 +25,7 @@ export default async function HeroLanding() {
     .catch((e) => console.log(e));
 
   return (
-    <section className="space-y-6 pt-16 pb-12 sm:pt-24 sm:pb-20 lg:pt-24 lg:pb-20">
+    <section className="space-y-6 pb-12 pt-16 sm:pb-20 sm:pt-24 lg:pb-20 lg:pt-24">
       <div className="container flex max-w-5xl flex-col items-center gap-5 text-center">
         {/* <Link
           href="https://twitter.com/miickasmt/status/1810465801649938857"
@@ -38,10 +39,12 @@ export default async function HeroLanding() {
           <span className="hidden md:flex">Pröva 14 dagar utan kostnad.&nbsp;</span>
         </Link> */}
 
-        <img
+        <Image
           src="/illustrations/handstars.svg"
           alt=""
-          className="w-24 h-auto mx-auto mb-8"
+          width={98}
+          height={98}
+          className="mx-auto mb-8"
         />
 
         <h1 className="text-balance font-urban text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl lg:text-[66px]">
@@ -52,20 +55,20 @@ export default async function HeroLanding() {
         </h1>
 
         <p
-          className="max-w-2xl text-balance leading-normal text-[#474747] sm:text-[22px] sm:leading-7 font-medium pt-2"
+          className="max-w-2xl text-balance pt-2 font-medium leading-normal text-[#474747] sm:text-[22px] sm:leading-7"
           style={{ animationDelay: "0.35s", animationFillMode: "forwards" }}
         >
           Vi håller koll på dina stjärnor. Mänskliga svar på alla dina Google-recensioner inom 24h.
         </p>
 
         <div
-          className="flex justify-center space-x-2 md:space-x-4 mt-8"
+          className="mt-8 flex justify-center space-x-2 md:space-x-4"
           style={{ animationDelay: "0.4s", animationFillMode: "forwards" }}
         >
           <Link
             href="/pricing"
             prefetch={true}
-            className="inline-flex items-center justify-center gap-2 rounded-lg bg-blue-600 hover:bg-blue-700 px-3 py-1.5 text-[15px] font-semibold text-white transition-colors"
+            className="inline-flex items-center justify-center gap-2 rounded-lg bg-blue-600 px-3 py-1.5 text-[15px] font-semibold text-white transition-colors hover:bg-blue-700"
           >
             <span>Kom igång – 995 kr/mån</span>
             <Icons.arrowRight className="size-4" />
@@ -91,7 +94,7 @@ export default async function HeroLanding() {
           </Link> */}
         </div>
 
-        <p className="text-[13px] font-normal text-[#45433e] -mt-3">
+        <p className="-mt-3 text-[13px] font-normal text-[#45433e]">
           Allt ingår. Ingen bindningstid.
         </p>
       </div>
