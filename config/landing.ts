@@ -97,6 +97,34 @@ export const features: FeatureLdg[] = [
   },
 ];
 
+export const featureStats = [
+  {
+    title: "90% läser recensioner",
+    description:
+      "Nästan alla kunder kollar recensioner innan de väljer ett lokalt företag. Dina recensioner är ofta det första intrycket.",
+  },
+  {
+    title: "53% förväntar sig svar",
+    description:
+      "Över hälften av kunderna förväntar sig att företag svarar på recensioner. Inget svar signalerar att du inte bryr dig.",
+  },
+  {
+    title: "Vänd kritik",
+    description:
+      "Företag som svarar på recensioner upplevs som mer pålitliga och kundorienterade – även på kritik.",
+  },
+  {
+    title: "Öka ditt betyg",
+    description:
+      "De flesta kunder filtrerar bort företag med under 4 stjärnor. Varje recension påverkar ditt snitt.",
+  },
+  {
+    title: "Ranka högre på Google",
+    description:
+      "Google rankar företag med fler och bättre recensioner högre i sökresultaten. Det betyder fler kunder hittar dig.",
+  },
+];
+
 export const testimonials: TestimonialType[] = [
   {
     name: "John Doe",

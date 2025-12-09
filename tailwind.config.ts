@@ -54,6 +54,7 @@ const config = {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
+        textmuted: "hsl(var(--text-muted))",
       },
       borderRadius: {
         lg: "var(--radius)",

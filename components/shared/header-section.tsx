@@ -2,13 +2,25 @@ interface HeaderSectionProps {
   label?: string;
   title: string;
   subtitle?: string;
+  labelColor?: string;
 }
 
-export function HeaderSection({ label, title, subtitle }: HeaderSectionProps) {
+export function HeaderSection({
+  label,
+  title,
+  subtitle,
+  labelColor,
+}: HeaderSectionProps) {
   return (
     <div className="flex flex-col items-center text-center">
       {label ? (
-        <div className="text-gradient_indigo-purple mb-4 font-semibold">
+        <div
+          className={
+            labelColor
+              ? `${labelColor} mb-4 font-semibold`
+              : "text-gradient_indigo-purple mb-4 font-semibold"
+          }
+        >
           {label}
         </div>
       ) : null}
