@@ -127,6 +127,23 @@ const config = {
             opacity: "1",
           },
         },
+        // Floating animations
+        float: {
+          "0%, 100%": {
+            transform: "translateY(0px)",
+          },
+          "50%": {
+            transform: "translateY(-8px)",
+          },
+        },
+        "float-slow": {
+          "0%, 100%": {
+            transform: "translateY(0px)",
+          },
+          "50%": {
+            transform: "translateY(-8px)",
+          },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
@@ -139,6 +156,10 @@ const config = {
         // Fade in and out
         "fade-in": "fade-in 0.4s",
         "fade-out": "fade-out 0.4s",
+
+        // Floating animations
+        float: "float 3s ease-in-out infinite",
+        "float-slow": "float-slow 4s ease-in-out infinite",
       },
     },
   },

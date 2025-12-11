@@ -2,9 +2,6 @@ import Image from "next/image";
 import Link from "next/link";
 
 import { env } from "@/env.mjs";
-import { siteConfig } from "@/config/site";
-import { cn, nFormatter } from "@/lib/utils";
-import { buttonVariants } from "@/components/ui/button";
 import { Icons } from "@/components/shared/icons";
 
 export default async function HeroLanding() {
@@ -27,17 +24,6 @@ export default async function HeroLanding() {
   return (
     <section className="space-y-6 pb-12 pt-16 sm:pb-20 sm:pt-24 lg:pb-20 lg:pt-24">
       <div className="container flex max-w-5xl flex-col items-center gap-5 text-center">
-        {/* <Link
-          href="https://twitter.com/miickasmt/status/1810465801649938857"
-          className={cn(
-            buttonVariants({ variant: "outline", size: "sm", rounded: "full" }),
-            "px-4",
-          )}
-          target="_blank"
-        >
-          <span className="mr-3">🎉</span>
-          <span className="hidden md:flex">Pröva 14 dagar utan kostnad.&nbsp;</span>
-        </Link> */}
 
         <Image
           src="/illustrations/handstars.svg"
@@ -48,17 +34,17 @@ export default async function HeroLanding() {
         />
 
         <h1 className="text-balance font-urban text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl lg:text-[66px]">
-          Vi svarar på dina recensioner.{" "}
+          Vi hanterar dina recensioner.{" "}
           <span className="text-gradient_indigo-purple font-extrabold">
             
           </span>
         </h1>
 
         <p
-          className="max-w-2xl text-balance pt-2 font-medium leading-normal text-[#474747] sm:text-[22px] sm:leading-7"
+          className="max-w-2xl text-balance pt-2 font-normal leading-normal text-[#474747] sm:text-[22px] sm:leading-7"
           style={{ animationDelay: "0.35s", animationFillMode: "forwards" }}
         >
-          Vi håller koll på dina stjärnor. Mänskliga svar på alla dina Google-recensioner inom 24h.
+          Professionella svar på alla dina Google-recensioner inom 24h. Vi kan även be nöjda kunder lämna nya.
         </p>
 
         <div
@@ -68,7 +54,7 @@ export default async function HeroLanding() {
           <Link
             href="/pricing"
             prefetch={true}
-            className="inline-flex items-center justify-center gap-2 rounded-lg bg-blue-600 px-3 py-1.5 text-[15px] font-semibold text-white transition-colors hover:bg-blue-700"
+            className="inline-flex items-center justify-center gap-2 rounded-lg bg-blue-600 px-3 py-1.5 text-[15px] font-medium text-white transition-colors hover:bg-blue-700"
           >
             <span>Kom igång – 995 kr/mån</span>
             <Icons.arrowRight className="size-4" />
